@@ -122,10 +122,30 @@ int is_final(Node* n) {
 
 
 Node* DFS(Node* initial, int* cont) {
+  Stack* stack = createStack();   // Pila para DFS
+  push(stack, initial);
 
-  return NULL; // si no se encuentra solución
+  while (!isEmpty(stack)) {
+      Node* current = top(stack);
+      pop(stack);
+      (*cont)++;
+
+      if (is_final(current)) {
+          return current; // Nodo final (solución) encontrado
+      }
+
+      List* adj = get_adj_nodes(current);
+      Node* adjNode = first(adj);
+      while (adjNode != NULL) {
+          push(stack, adjNode);  // Agrega cada nodo hijo válido a la pila
+          adjNode = next(adj);
+      }
+
+      free(current); // Liberar nodo actual si no es solución
+  }
+
+  return NULL; // Si no se encontró solución
 }
-
 
 
 /*
