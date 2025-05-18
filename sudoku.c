@@ -122,9 +122,6 @@ int is_final(Node* n) {
 
 
 Node* DFS(Node* initial, int* cont) {
-  Stack* stack = createStack();
-  
-  
 
   return NULL; // si no se encuentra solución
 }
