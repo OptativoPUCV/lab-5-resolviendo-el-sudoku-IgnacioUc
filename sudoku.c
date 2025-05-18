@@ -111,12 +111,37 @@ List* get_adj_nodes(Node* n) {
   return list;
 }
 
-int is_final(Node* n){
-    return 0;
+int is_final(Node* n) {
+  int i, j;
+  for (i = 0; i < 9; i++)
+      for (j = 0; j < 9; j++)
+          if (n->sudo[i][j] == 0)
+              return 0;
+  return 1;
 }
 
-Node* DFS(Node* initial, int* cont){
-  return NULL;
+
+Node* DFS(Node* initial, int* cont) {
+  Stack* stack = createStack();
+  push(stack, initial);
+
+  while (!isEmpty(stack)) {
+      Node* curr = top(stack);
+      pop(stack);
+      (*cont)++;
+
+      if (is_final(curr)) return curr;
+
+      List* adj = get_adj_nodes(curr);
+      Node* adjNode = first(adj);
+      while (adjNode != NULL) {
+          push(stack, adjNode);
+          adjNode = next(adj);
+      }
+      free(curr); // liberar el nodo actual si no es solución
+  }
+
+  return NULL; // si no se encuentra solución
 }
 
 
