@@ -19,3 +19,14 @@ sudoku.c:128:11: error: implicit declaration of function 'isEmpty' [-Werror=impl
            ^~~~~~~
 cc1.exe: all warnings being treated as errors
 90f8cc8
+Sun, May 18, 2025  4:30:41 AM: 
+ sudoku.c | 6 ------
+ 1 file changed, 6 deletions(-)
+Compilation failed
+In file included from test.c:5:0:
+sudoku.c: In function 'DFS':
+sudoku.c:122:11: error: implicit declaration of function 'isEmpty' [-Werror=implicit-function-declaration]
+   while (!isEmpty(stack)) {
+           ^~~~~~~
+cc1.exe: all warnings being treated as errors
+3d75e98
