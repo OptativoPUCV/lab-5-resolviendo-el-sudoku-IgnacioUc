@@ -41,3 +41,14 @@ sudoku.c:128:11: error: implicit declaration of function 'isEmpty' [-Werror=impl
            ^~~~~~~
 cc1.exe: all warnings being treated as errors
 8a47a9f
+Sun, May 18, 2025  4:31:25 AM: 
+ sudoku.c | 15 ---------------
+ 1 file changed, 15 deletions(-)
+Compilation failed
+In file included from test.c:5:0:
+sudoku.c: In function 'DFS':
+sudoku.c:125:10: error: unused variable 'stack' [-Werror=unused-variable]
+   Stack* stack = createStack();
+          ^~~~~
+cc1.exe: all warnings being treated as errors
+67da92d

@@ -123,23 +123,8 @@ int is_final(Node* n) {
 
 Node* DFS(Node* initial, int* cont) {
   Stack* stack = createStack();
-  push(stack, initial);
-
-  while (!isEmpty(stack)) {
-      Node* curr = top(stack);
-      pop(stack);
-      (*cont)++;
-
-      if (is_final(curr)) return curr;
-
-      List* adj = get_adj_nodes(curr);
-      Node* adjNode = first(adj);
-      while (adjNode != NULL) {
-          push(stack, adjNode);
-          adjNode = next(adj);
-      }
-      free(curr); // liberar el nodo actual si no es solución
-  }
+  
+  
 
   return NULL; // si no se encuentra solución
 }
